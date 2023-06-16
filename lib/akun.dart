@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:cobacobacoba/profil.dart';
+import 'package:cobacobacoba/lowonganapply.dart';
+import 'package:cobacobacoba/pelatihanapply.dart';
+import 'package:cobacobacoba/manajemenkarir.dart';
+import 'package:cobacobacoba/riwayatpelatihan.dart';
 
 class AkunPage extends StatelessWidget {
   @override
@@ -24,7 +29,10 @@ class AkunPage extends StatelessWidget {
                   title: Text('Profil'),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Navigate to profil page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ProfilPage()),
+                    );
                   },
                 ),
                 Divider(),
@@ -33,7 +41,11 @@ class AkunPage extends StatelessWidget {
                   title: Text('Lowongan Pekerjaan yang Sudah Diapply'),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Navigate to lowongan page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LowonganApplyPage()),
+                    );
                   },
                 ),
                 Divider(),
@@ -42,7 +54,11 @@ class AkunPage extends StatelessWidget {
                   title: Text('Pelatihan yang Sudah Diapply'),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Navigate to pelatihan page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PelatihanApplyPage()),
+                    );
                   },
                 ),
                 Divider(),
@@ -51,7 +67,11 @@ class AkunPage extends StatelessWidget {
                   title: Text('Manajemen Karir'),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Navigate to manajemen karir page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ManajemenKarirPage()),
+                    );
                   },
                 ),
                 Divider(),
@@ -60,7 +80,11 @@ class AkunPage extends StatelessWidget {
                   title: Text('Riwayat Pelatihan'),
                   trailing: Icon(Icons.arrow_forward_ios),
                   onTap: () {
-                    // TODO: Navigate to riwayat pelatihan page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RiwayatPelatihanPage()),
+                    );
                   },
                 ),
               ],
