@@ -1,3 +1,4 @@
+import 'package:cobacobacoba/detailapply.dart';
 import 'package:flutter/material.dart';
 
 class PelatihanDetailPage extends StatelessWidget {
@@ -39,7 +40,10 @@ class PelatihanDetailPage extends StatelessWidget {
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                // Lihat detail apply
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailApply()),
+                );
               },
               child: Text('Lihat Detail Apply'),
             ),
