@@ -1,3 +1,4 @@
+import 'package:cobacobacoba/apply.dart';
 import 'package:flutter/material.dart';
 
 class BerandaPage extends StatefulWidget {
@@ -182,7 +183,11 @@ class DetailPerusahaanPage extends StatelessWidget {
                       subtitle: Text(perusahaan.lowongan[index].persyaratan),
                       trailing: ElevatedButton(
                         onPressed: () {
-                          // TODO: Implement apply job function
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ApplyPage()),
+                          );
                         },
                         child: Text('Apply'),
                       ),
