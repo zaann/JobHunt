@@ -208,6 +208,7 @@ class DetailPekerjaanPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Pekerjaan'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -281,6 +282,7 @@ class DetailPekerjaanPage1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Pekerjaan'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -354,6 +356,7 @@ class DetailPekerjaanPage2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Pekerjaan'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -427,6 +430,7 @@ class DetailPelatihanPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Pelatihan'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -500,6 +504,7 @@ class DetailPelatihanPage1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Pelatihan'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -573,6 +578,7 @@ class DetailPelatihanPage2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Pelatihan'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),

@@ -144,6 +144,7 @@ class DetailPerusahaanPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(perusahaan.nama),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),

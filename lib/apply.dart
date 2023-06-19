@@ -6,40 +6,79 @@ class ApplyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Apply'),
+        backgroundColor: Colors.indigo.shade900,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.notifications),
+          ),
+        ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Lamaran',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
                 labelText: 'Nama Lengkap',
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Alamat Email',
+                labelText: 'Email',
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16.0),
             TextFormField(
               decoration: InputDecoration(
                 labelText: 'Nomor Telepon',
               ),
             ),
-            SizedBox(height: 32),
+            SizedBox(height: 16.0),
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Pesan (opsional)',
+              ),
+              maxLines: 4,
+            ),
+            SizedBox(height: 32.0),
             ElevatedButton(
-              child: Text('Kirim Lamaran'),
               onPressed: () {
-                // Aksi yang dilakukan ketika tombol ditekan
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('Lamaran Dikirim'),
+                      content:
+                          Text('Terima kasih telah melamar pekerjaan ini.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('OK'),
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
+              child: Text('Kirim Lamaran'),
             ),
           ],
         ),

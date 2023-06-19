@@ -34,32 +34,47 @@ class PelatihanApplyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pelatihan yang Sudah Diapply'),
+        backgroundColor: Colors.indigo.shade900, // ubah warna AppBar
       ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: pelatihan.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text(pelatihan[index]['judul']!),
-              subtitle: Text('Status: Menunggu Konfirmasi'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // Navigasi ke halaman detail pelatihan
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PelatihanDetailPage(
-                      judul: pelatihan[index]['judul']!,
-                      institusi: pelatihan[index]['institusi']!,
-                      deskripsi: pelatihan[index]['deskripsi']!,
-                    ),
-                  ),
-                );
-              },
+      body: FutureBuilder(
+        future: Future.delayed(
+            Duration(seconds: 2)), // simulasi pengambilan data dari server
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            // tampilkan animasi loading saat data sedang diambil dari server
+            return Center(
+              child: CircularProgressIndicator(),
             );
-          },
-        ),
+          } else {
+            return Container(
+              color: Colors.white, // ubah warna latar belakang
+              padding: EdgeInsets.all(16.0),
+              child: ListView.builder(
+                itemCount: pelatihan.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    title: Text(pelatihan[index]['judul']!),
+                    subtitle: Text('Status: Menunggu Konfirmasi'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      // Navigasi ke halaman detail pelatihan
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PelatihanDetailPage(
+                            judul: pelatihan[index]['judul']!,
+                            institusi: pelatihan[index]['institusi']!,
+                            deskripsi: pelatihan[index]['deskripsi']!,
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            );
+          }
+        },
       ),
     );
   }

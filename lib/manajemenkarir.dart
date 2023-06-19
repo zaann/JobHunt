@@ -8,6 +8,7 @@ class ManajemenKarirPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Manajemen Karir'),
+        backgroundColor: Colors.indigo.shade900,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -77,30 +78,6 @@ class ManajemenKarirPage extends StatelessWidget {
               SizedBox(height: 16.0),
               Text(
                 'Perusahaan dapat membantu karyawan dalam manajemen karir mereka melalui program pengembangan karir, mentoring, coaching, atau program rotasi jabatan. Program-program ini membantu karyawan untuk mengembangkan keterampilan dan pengalaman yang dibutuhkan untuk mencapai tujuan karir mereka.',
-              ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LowonganApplyPage(),
-                    ),
-                  );
-                },
-                child: Text('Lihat Daftar Lowongan yang Sudah Diapply'),
-              ),
-              SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PelatihanApplyPage(),
-                    ),
-                  );
-                },
-                child: Text('Lihat Daftar Pelatihan yang Sudah Diapply'),
               ),
               SizedBox(height: 16.0),
             ],

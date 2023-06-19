@@ -1,5 +1,5 @@
-import 'package:cobacobacoba/detailapply.dart';
 import 'package:flutter/material.dart';
+import 'package:cobacobacoba/detailapply.dart';
 
 class LowonganDetailPage extends StatelessWidget {
   final String judul;
@@ -16,9 +16,19 @@ class LowonganDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(judul),
+        title: Hero(
+          tag: judul, // tambahkan tag untuk hero animation
+          child: Text(
+            judul,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.indigo.shade900, // ubah warna AppBar
       ),
       body: Container(
+        color: Colors.white, // ubah warna latar belakang
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +47,7 @@ class LowonganDetailPage extends StatelessWidget {
                 fontSize: 16.0,
               ),
             ),
-            SizedBox(height: 16.0),
+            SizedBox(height: 32.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -45,7 +55,14 @@ class LowonganDetailPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => DetailApply()),
                 );
               },
-              child: Text('Lihat Detail Apply'),
+              child: Text(
+                'Lihat Detail Apply',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),

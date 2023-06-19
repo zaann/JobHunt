@@ -6,15 +6,27 @@ class DetailApply extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detail Apply'),
+        backgroundColor: Colors.indigo.shade900, // ubah warna AppBar
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
+      body: Container(
+        color: Colors.white, // ubah warna latar belakang
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Nama Lengkap',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Row(
+              // tambahkan ikon edit pada setiap item informasi pribadi
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Nama Lengkap',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                IconButton(
+                  icon: Icon(Icons.edit),
+                  onPressed: () {},
+                ),
+              ],
             ),
             SizedBox(height: 8),
             Text(
@@ -22,9 +34,18 @@ class DetailApply extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 16),
-            Text(
-              'Alamat Email',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Alamat Email',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                IconButton(
+                  icon: Icon(Icons.edit),
+                  onPressed: () {},
+                ),
+              ],
             ),
             SizedBox(height: 8),
             Text(
@@ -32,9 +53,18 @@ class DetailApply extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 16),
-            Text(
-              'Nomor Telepon',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Nomor Telepon',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                IconButton(
+                  icon: Icon(Icons.edit),
+                  onPressed: () {},
+                ),
+              ],
             ),
             SizedBox(height: 8),
             Text(

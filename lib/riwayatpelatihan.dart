@@ -41,6 +41,8 @@ class RiwayatPelatihanPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Riwayat Pelatihan'),
+        backgroundColor:
+            Colors.indigo.shade900, // Ubah warna appbar menjadi indigo
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),

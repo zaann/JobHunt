@@ -17,6 +17,7 @@ class PelatihanDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(judul),
+        backgroundColor: Colors.indigo.shade900, // ubah warna AppBar
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),

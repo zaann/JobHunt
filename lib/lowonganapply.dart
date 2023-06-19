@@ -34,32 +34,50 @@ class LowonganApplyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lowongan Pekerjaan yang Sudah Diapply'),
+        backgroundColor: Colors.indigo.shade900,
       ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: lowonganPekerjaan.length,
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text(lowonganPekerjaan[index]['judul']!),
-              subtitle: Text('Status: Menunggu Konfirmasi'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // Navigasi ke halaman detail lowongan pekerjaan
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LowonganDetailPage(
-                      judul: lowonganPekerjaan[index]['judul']!,
-                      perusahaan: lowonganPekerjaan[index]['perusahaan']!,
-                      deskripsi: lowonganPekerjaan[index]['deskripsi']!,
-                    ),
-                  ),
-                );
-              },
+      body: FutureBuilder(
+        future: Future.delayed(
+            Duration(seconds: 2)), // simulasi pengambilan data dari server
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            // tampilkan animasi loading saat data sedang diambil dari server
+            return Center(
+              child: CircularProgressIndicator(),
             );
-          },
-        ),
+          } else {
+            return Container(
+              padding: EdgeInsets.all(16.0),
+              child: ListView.builder(
+                itemCount: lowonganPekerjaan.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    color: Colors.grey[100],
+                    child: ListTile(
+                      title: Text(lowonganPekerjaan[index]['judul']!),
+                      subtitle: Text('Status: Menunggu Konfirmasi'),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        // Navigasi ke halaman detail lowongan pekerjaan
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LowonganDetailPage(
+                              judul: lowonganPekerjaan[index]['judul']!,
+                              perusahaan: lowonganPekerjaan[index]
+                                  ['perusahaan']!,
+                              deskripsi: lowonganPekerjaan[index]['deskripsi']!,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            );
+          }
+        },
       ),
     );
   }

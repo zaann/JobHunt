@@ -8,12 +8,14 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false; // tambahkan variabel untuk menandakan loading
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('Login Page'),
+      //   backgroundColor: Colors.indigo.shade900, // ubah warna AppBar
       // ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -35,10 +37,40 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
             SizedBox(height: 16.0),
-            MaterialButton(
+            ElevatedButton(
               child: Text('Login'),
               onPressed: () {
-                Navigator.pushNamed(context, '/dashboard');
+                setState(() {
+                  _isLoading =
+                      true; // set loading menjadi true saat tombol login ditekan
+                });
+
+                // simulasi pengambilan data dari server dengan delay 2 detik
+                Future.delayed(Duration(seconds: 2), () {
+                  setState(() {
+                    _isLoading =
+                        false; // set loading menjadi false saat data berhasil diambil
+                  });
+
+                  Navigator.pushNamed(context, '/dashboard');
+                });
+
+                // tampilkan AlertDialog dengan CircularProgressIndicator saat data sedang diambil
+                showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: Row(
+                        children: [
+                          CircularProgressIndicator(),
+                          SizedBox(width: 16.0),
+                          Text('Loading...'),
+                        ],
+                      ),
+                    );
+                  },
+                );
               },
             ),
           ],
