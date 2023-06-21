@@ -13,15 +13,21 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Login Page'),
-      //   backgroundColor: Colors.indigo.shade900, // ubah warna AppBar
-      // ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'JobHunt',
+              style: TextStyle(
+                fontSize: 32.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+                height:
+                    32.0), // Add spacing between the title and the text fields
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
@@ -41,21 +47,17 @@ class _LoginPageState extends State<LoginPage> {
               child: Text('Login'),
               onPressed: () {
                 setState(() {
-                  _isLoading =
-                      true; // set loading menjadi true saat tombol login ditekan
+                  _isLoading = true;
                 });
 
-                // simulasi pengambilan data dari server dengan delay 2 detik
                 Future.delayed(Duration(seconds: 2), () {
                   setState(() {
-                    _isLoading =
-                        false; // set loading menjadi false saat data berhasil diambil
+                    _isLoading = false;
                   });
 
                   Navigator.pushNamed(context, '/dashboard');
                 });
 
-                // tampilkan AlertDialog dengan CircularProgressIndicator saat data sedang diambil
                 showDialog(
                   context: context,
                   barrierDismissible: false,
